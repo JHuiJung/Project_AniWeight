@@ -83,6 +83,7 @@ public class AniBall : MonoBehaviour
 
     void HandleMouseInput()
     {
+        if (StageManager.inst.isStarted) return;
         // 마우스 클릭 시 Raycast로 오브젝트와 충돌 확인
         if (Input.GetMouseButtonDown(0))
         {
@@ -106,7 +107,20 @@ public class AniBall : MonoBehaviour
         if (Input.GetMouseButton(0) && isDragging && selectedAniBall != null)
         {
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            selectedAniBall.transform.position = mousePosition + offset;
+            
+            if(selectedAniBall.transform.position.y >= -1f)
+            {
+                selectedAniBall.transform.position = mousePosition + offset;
+            }
+        }
+
+        if(selectedAniBall != null)
+        {
+
+            if (selectedAniBall.transform.position.y < -1f)
+            {
+                selectedAniBall.transform.position = new Vector2(selectedAniBall.transform.position.x, -1f);
+            }
         }
 
         // 마우스 버튼을 떼면 드래그 상태 해제

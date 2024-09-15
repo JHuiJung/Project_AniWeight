@@ -8,6 +8,8 @@ public class StageManager : MonoBehaviour
 {
     public static StageManager inst;
 
+    public AniData AniData;
+
     public List<Plate> plates = new List<Plate>(); 
 
     public List<AniBall> aniBalls = new List<AniBall>();
@@ -19,7 +21,7 @@ public class StageManager : MonoBehaviour
 
 
     public bool isGameEnd = false;
-
+    public bool isStarted = false;
     bool allAnimalAttached = false;
     bool allPlateWeightEqual = false;
 
@@ -67,6 +69,7 @@ public class StageManager : MonoBehaviour
 
     public void BTN_Play()
     {
+        isStarted = true;
         aniBalls.Clear();
         aniBalls = new List<AniBall>(FindObjectsOfType<AniBall>());
 

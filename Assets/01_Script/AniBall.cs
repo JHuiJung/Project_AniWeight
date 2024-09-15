@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using DG.Tweening;
 public class AniBall : MonoBehaviour
 {
     public bool isAttached = false;
@@ -9,13 +9,15 @@ public class AniBall : MonoBehaviour
     Rigidbody2D rigidBody;
     Collider2D coll2D;
 
+    public Transform img_Transform;
+
     private bool isDragging = false;
     private Vector2 offset;
     private AniBall selectedAniBall;
 
     void Start()
     {
-
+        img_Transform = transform.GetChild(0);
 
         rigidBody = GetComponent<Rigidbody2D>();
         coll2D = GetComponent<Collider2D>();
@@ -56,6 +58,7 @@ public class AniBall : MonoBehaviour
                         if (selectedAniBall != null)
                         {
                             isDragging = true;
+                            
                             offset = (Vector2)selectedAniBall.transform.position - touchPosition;
                         }
                     }
@@ -93,6 +96,7 @@ public class AniBall : MonoBehaviour
                 if (selectedAniBall != null)
                 {
                     isDragging = true;
+                    selectedAniBall.img_Transform.DOScale(new Vector3(1.5f,1.5f,1f),0.25f);
                     offset = (Vector2)selectedAniBall.transform.position - mousePosition;
                 }
             }
@@ -109,6 +113,10 @@ public class AniBall : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             isDragging = false;
+            if(selectedAniBall != null)
+            {
+                selectedAniBall.img_Transform.DOScale(new Vector3(1f, 1f, 1f), 0.25f);
+            }
             selectedAniBall = null;
         }
     }

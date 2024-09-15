@@ -75,6 +75,17 @@ public class StageManager : MonoBehaviour
             ani.Play();
         }
 
+        StartCoroutine(CheckGame());
+    }
+
+    IEnumerator CheckGame()
+    {
+        yield return new WaitForSeconds(5f);
+
+        if(!isGameEnd)
+        {
+            Fail();
+        }
     }
 
     public void Fail()

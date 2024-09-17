@@ -1,4 +1,5 @@
-# ANIWEIGHT
+![image](https://github.com/user-attachments/assets/39aa281e-8ca4-4fc7-8f0d-a5ed6c9b11ad)
+
 
 Welcome to **ANIWEIGHT**! A fun and challenging mobile game where you balance different animals on a scale. Test your skills, strategize your placements, and keep the scale balanced!
 

@@ -4,6 +4,8 @@ using UnityEngine;
 using DG.Tweening;
 public class AniBall : MonoBehaviour
 {
+    public static float threshold = -1f;
+
     public bool isAttached = false;
     public float Weight = 1f;
     Rigidbody2D rigidBody;
@@ -30,11 +32,13 @@ public class AniBall : MonoBehaviour
 
     void Update()
     {
-        // Android ---
-        //HandleTouchInput();
 
-        // PC -----
+#if UNITY_EDITOR
         HandleMouseInput();
+#else
+    // 빌드된 게임에서 애플리케이션 종료
+    HandleTouchInput();
+#endif
     }
 
     void HandleTouchInput()
@@ -58,7 +62,7 @@ public class AniBall : MonoBehaviour
                         if (selectedAniBall != null)
                         {
                             isDragging = true;
-                            
+                            selectedAniBall.img_Transform.DOScale(new Vector3(1.5f, 1.5f, 1f), 0.25f);
                             offset = (Vector2)selectedAniBall.transform.position - touchPosition;
                         }
                     }
@@ -68,14 +72,29 @@ public class AniBall : MonoBehaviour
                     // 드래그 중일 때 AniBall 오브젝트를 이동
                     if (isDragging && selectedAniBall != null)
                     {
-                        selectedAniBall.transform.position = touchPosition + offset;
+                        if (selectedAniBall.transform.position.y >= threshold)
+                            selectedAniBall.transform.position = touchPosition + offset;
                     }
                     break;
 
                 case TouchPhase.Ended:
                     // 터치가 끝나면 드래그 상태 해제
                     isDragging = false;
+                    if (selectedAniBall != null)
+                    {
+                        selectedAniBall.img_Transform.DOScale(new Vector3(1f, 1f, 1f), 0.25f);
+                    }
                     selectedAniBall = null;
+                    break;
+                default:
+                    if (selectedAniBall != null)
+                    {
+
+                        if (selectedAniBall.transform.position.y < threshold)
+                        {
+                            selectedAniBall.transform.position = new Vector2(selectedAniBall.transform.position.x, threshold);
+                        }
+                    }
                     break;
             }
         }
@@ -108,7 +127,7 @@ public class AniBall : MonoBehaviour
         {
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             
-            if(selectedAniBall.transform.position.y >= -1f)
+            if(selectedAniBall.transform.position.y >= threshold)
             {
                 selectedAniBall.transform.position = mousePosition + offset;
             }
@@ -117,9 +136,9 @@ public class AniBall : MonoBehaviour
         if(selectedAniBall != null)
         {
 
-            if (selectedAniBall.transform.position.y < -1f)
+            if (selectedAniBall.transform.position.y < threshold)
             {
-                selectedAniBall.transform.position = new Vector2(selectedAniBall.transform.position.x, -1f);
+                selectedAniBall.transform.position = new Vector2(selectedAniBall.transform.position.x, threshold);
             }
         }
 
@@ -143,8 +162,13 @@ public class AniBall : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (!isAttached)
+        {
+            img_Transform.DOPunchScale(new Vector3(0f, 1f, 0f), 0.25f);
+        }
         isAttached = true;
         AniBall ab = collision.gameObject.GetComponent<AniBall>();
+        
         if (ab != null)
         {
             ab.isAttached = true;

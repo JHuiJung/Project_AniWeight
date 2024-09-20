@@ -4,10 +4,13 @@ using UnityEngine;
 using DG.Tweening;
 public class AniBall : MonoBehaviour
 {
-    public static float threshold = -1f;
+    public static float threshold = -0.5f;
 
     public bool isAttached = false;
     public float Weight = 1f;
+    public ParticleSystem ptc;
+    
+    
     Rigidbody2D rigidBody;
     Collider2D coll2D;
 
@@ -164,8 +167,11 @@ public class AniBall : MonoBehaviour
     {
         if (!isAttached)
         {
-            img_Transform.DOPunchScale(new Vector3(0f, 1f, 0f), 0.25f);
+            img_Transform.DOPunchScale(new Vector3(0f, -0.5f, 0f), 0.25f);
+            if (ptc != null)
+                ptc.Play();
         }
+
         isAttached = true;
         AniBall ab = collision.gameObject.GetComponent<AniBall>();
         

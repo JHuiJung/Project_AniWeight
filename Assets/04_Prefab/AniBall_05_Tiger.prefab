@@ -76,6 +76,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isAttached: 0
   Weight: 1
+  ptc: {fileID: 0}
   img_Transform: {fileID: 0}
 --- !u!58 &3764597979598756187
 CircleCollider2D:

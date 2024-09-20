@@ -160,6 +160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isAttached: 0
   Weight: 1
+  ptc: {fileID: 0}
   img_Transform: {fileID: 0}
 --- !u!60 &829563354032500615
 PolygonCollider2D:

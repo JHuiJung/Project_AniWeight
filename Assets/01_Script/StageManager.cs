@@ -8,7 +8,9 @@ public class StageManager : MonoBehaviour
 {
     public static StageManager inst;
 
-    public AniData AniData;
+    public int stageNum = 1;
+    public AniData aniData;
+    public StageData stageData;
 
     public List<Plate> plates = new List<Plate>(); 
 
@@ -99,8 +101,18 @@ public class StageManager : MonoBehaviour
 
     public void Sucess()
     {
+        if (isGameEnd)
+            return;
+
         isGameEnd = true;
         Panel_Success.SetActive(true);
+        stageData.States[stageNum-1] = StageState.Clear;
+
+        if(stageNum  < stageData.States.Count)
+        {
+            stageData.States[stageNum] = StageState.UnLock;
+        }
+        
     }
 
     void CheckAnimalAttached()

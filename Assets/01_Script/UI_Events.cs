@@ -12,11 +12,21 @@ public class UI_Events : MonoBehaviour
     [SerializeField]
     float punchTime = 0.125f;
 
+    [Space(10),SerializeField]
+    bool useParticle = false;
+    [SerializeField]
+    ParticleSystem ptcSystem = null;
+
     private void OnEnable()
     {
         if (usePunchSacle)
         {
             this.GetComponent<RectTransform>().DOPunchScale(punchVec, punchTime);
+        }
+
+        if(useParticle)
+        {
+            ptcSystem.Play();
         }
     }
 

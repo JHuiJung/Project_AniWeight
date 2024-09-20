@@ -45,7 +45,7 @@ public class Title_AniSpawner : MonoBehaviour
             np.transform.rotation = Quaternion.Euler(0f, 0f, randomZRotation);
 
             // Destroy the object after 3 seconds
-            Destroy(np, 3f);
+            Destroy(np, 7f);
         }
     }
 

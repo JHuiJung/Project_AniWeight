@@ -121,6 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isAttached: 0
   Weight: 1
+  ptc: {fileID: 0}
   img_Transform: {fileID: 0}
 --- !u!1 &6182632343929439621
 GameObject:

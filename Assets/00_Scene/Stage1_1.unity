@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -423,7 +423,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -325.00003, y: 769.44446}
+  m_AnchoredPosition: {x: 25, y: -25}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &80274931
@@ -3694,7 +3694,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 700, y: 1588.8889}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &545370915
 MonoBehaviour:
@@ -3709,7 +3709,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.39215687}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4614,7 +4614,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.2
+  m_AngularDrag: 10
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -7192,7 +7192,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 700, y: 1588.8889}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1017540688
 MonoBehaviour:
@@ -7384,7 +7384,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 700, y: 1588.8889}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1038447449
 MonoBehaviour:
@@ -7548,10 +7548,10 @@ RectTransform:
   - {fileID: 1017540687}
   m_Father: {fileID: 467595856}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1068625360
 GameObject:
@@ -8885,7 +8885,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -200, y: -1000}
+  m_SizeDelta: {x: -200, y: -1200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1225747417
 MonoBehaviour:
@@ -9243,7 +9243,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: -684.44446}
+  m_AnchoredPosition: {x: 0, y: 130}
   m_SizeDelta: {x: 162, y: 252}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1279896179
@@ -10673,7 +10673,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 325.00003, y: 769.44446}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1570861182
@@ -11030,6 +11030,14 @@ PrefabInstance:
     - target: {fileID: 1726547850954489252, guid: 5de85c0a811e739499e39de775f86ac4, type: 3}
       propertyPath: m_Name
       value: AniBall_00_Rabbit (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7571024022056792824, guid: 5de85c0a811e739499e39de775f86ac4, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 6e52038a45094bd408c753106c0569e1, type: 2}
+    - target: {fileID: 7571024022056792824, guid: 5de85c0a811e739499e39de775f86ac4, type: 3}
+      propertyPath: m_LinearDrag
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13226,7 +13234,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0e3f463e0140e5e449ba4e1a009b0880, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f47f87f7ac6d4244d95ce35181356a14, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -13563,6 +13571,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6930671415998556095, guid: 0029ab4f1aa60db49bd97543916ebd81, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 6e52038a45094bd408c753106c0569e1, type: 2}
+    - target: {fileID: 6930671415998556095, guid: 0029ab4f1aa60db49bd97543916ebd81, type: 3}
+      propertyPath: m_LinearDrag
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8110290005779121820, guid: 0029ab4f1aa60db49bd97543916ebd81, type: 3}
       propertyPath: m_Name
       value: AniBall_02_pig
@@ -13623,6 +13639,14 @@ PrefabInstance:
     - target: {fileID: 1726547850954489252, guid: 5de85c0a811e739499e39de775f86ac4, type: 3}
       propertyPath: m_Name
       value: AniBall_00_Rabbit
+      objectReference: {fileID: 0}
+    - target: {fileID: 7571024022056792824, guid: 5de85c0a811e739499e39de775f86ac4, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 6e52038a45094bd408c753106c0569e1, type: 2}
+    - target: {fileID: 7571024022056792824, guid: 5de85c0a811e739499e39de775f86ac4, type: 3}
+      propertyPath: m_LinearDrag
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

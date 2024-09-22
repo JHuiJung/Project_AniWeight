@@ -9,9 +9,8 @@ public class StageManager : MonoBehaviour
     public static StageManager inst;
 
     public int stageNum = 1;
-    public AniData aniData;
-    public StageData stageData;
 
+    [Space(10)]
     public List<Plate> plates = new List<Plate>(); 
 
     public List<AniBall> aniBalls = new List<AniBall>();
@@ -37,16 +36,16 @@ public class StageManager : MonoBehaviour
     private void Update()
     {
         if (isGameEnd) return;
-        CheckPlateWeights();
+        //CheckPlateWeights();
         CheckAnimalAttached();
 
-        if(allAnimalAttached && allPlateWeightEqual)
+        if(allAnimalAttached )
         {
             _time += Time.deltaTime;
 
             textCnt.text = (3f-_time).ToString("F0");
 
-            if ( _time > 3f )
+            if ( _time >= 2f )
             {
                 _time = 0f;
                 Sucess();
@@ -95,6 +94,9 @@ public class StageManager : MonoBehaviour
 
     public void Fail()
     {
+        if (isGameEnd)
+            return;
+
         isGameEnd = true;
         Panel_Fail.SetActive(true);
     }
@@ -106,13 +108,15 @@ public class StageManager : MonoBehaviour
 
         isGameEnd = true;
         Panel_Success.SetActive(true);
-        stageData.States[stageNum-1] = StageState.Clear;
+        DataManager.Instance.LoadGameData();
 
-        if(stageNum  < stageData.States.Count)
+        DataManager.Instance.data.Stage[stageNum - 1] = (int)(StageState.Clear);
+
+        if (stageNum < DataManager.Instance.data.Stage.Length)
         {
-            stageData.States[stageNum] = StageState.UnLock;
+            DataManager.Instance.data.Stage[stageNum] = (int)StageState.UnLock;
         }
-        
+        DataManager.Instance.SaveGameData();
     }
 
     void CheckAnimalAttached()

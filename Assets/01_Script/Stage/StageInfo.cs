@@ -12,24 +12,26 @@ public enum StageState
 public class StageInfo : MonoBehaviour
 {
     public StageState state = StageState.UnLock;
-    public string moveSceneName = "Title";
 
     public GameObject icon_Lock;
     public GameObject icon_Clear;
 
-    public void ChangeState(StageState _state)
+    public void ChangeState(int _state)
     {
+        // 0 = Lock
+        // 1 = UnLock
+        // 2 = Clear
         switch (_state)
         {
-            case StageState.Lock:
+            case 0:
                 icon_Clear.SetActive(false);
                 icon_Lock.SetActive(true);
                 break;
-            case StageState.UnLock:
+            case 1:
                 icon_Clear.SetActive(false);
                 icon_Lock.SetActive(false);
                 break ;
-            case StageState.Clear:
+            case 2:
                 icon_Clear.SetActive(true);
                 icon_Lock.SetActive(false);
                 break;

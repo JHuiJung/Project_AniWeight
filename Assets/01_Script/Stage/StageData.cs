@@ -1,8 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[CreateAssetMenu(fileName = "StageData", menuName = "Data/StageData", order = 1)]
-public class StageData : ScriptableObject
+
+public class StageData
 {
-    public List<StageState> States;
+    public int[] Stage;
+
+    public StageData()
+    {
+        Stage = new int[9];
+        Stage[0] = 1;  // 첫 번째 값을 1로 설정
+    }
 }

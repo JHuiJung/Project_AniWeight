@@ -18,14 +18,14 @@ public class BTN_Escape : MonoBehaviour
     public bool isLoadScene = false;
     public string sceneName = "Title";
 
-    [Space]
+    [Space(10)]
     public bool isToggleObj = false;
     public GameObject targetToggleObj;
 
     private void Update()
     {
-        if(Application.platform == RuntimePlatform.Android)
-        {
+#if UNITY_ANDROID
+        
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 if(isOpenObj)
@@ -42,10 +42,14 @@ public class BTN_Escape : MonoBehaviour
                 {
                     SceneManager.LoadScene(sceneName);
                 }
-                
+
+            if (isToggleObj)
+            {
+                targetToggleObj.SetActive(!targetToggleObj.activeSelf);
             }
         }
-        if (Input.GetKeyDown(KeyCode.Q))
+#else
+if (Input.GetKeyDown(KeyCode.Q))
         {
             if (isOpenObj)
             {
@@ -68,6 +72,8 @@ public class BTN_Escape : MonoBehaviour
             }
 
         }
+#endif
+        
 
 
 

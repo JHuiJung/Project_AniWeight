@@ -76,7 +76,14 @@ public class AniBall : MonoBehaviour
                     if (isDragging && selectedAniBall != null)
                     {
                         if (selectedAniBall.transform.position.y >= threshold)
+                        {
                             selectedAniBall.transform.position = touchPosition + offset;
+                        }
+                        else
+                        {
+                            selectedAniBall.transform.position = new Vector2(selectedAniBall.transform.position.x, threshold);
+                        }
+                            
                     }
                     break;
 
@@ -88,16 +95,6 @@ public class AniBall : MonoBehaviour
                         selectedAniBall.img_Transform.DOScale(new Vector3(1f, 1f, 1f), 0.25f);
                     }
                     selectedAniBall = null;
-                    break;
-                default:
-                    if (selectedAniBall != null)
-                    {
-
-                        if (selectedAniBall.transform.position.y < threshold)
-                        {
-                            selectedAniBall.transform.position = new Vector2(selectedAniBall.transform.position.x, threshold);
-                        }
-                    }
                     break;
             }
         }
